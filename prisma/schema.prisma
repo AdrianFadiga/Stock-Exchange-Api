@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model InfoMoneyStockExchanges {
+  date String?
+  stock_code String @id @unique
+  stock_name String?
+  value Float?
+  value_formatted String?
+  change_day Float?
+  change_day_formatted String?
+  change12_m Float?
+  change12_m_formatted String?
+  volume Float?
+  volume_formatted String?
+
+  @@map("info_money_stock_exchanges")
+}
