@@ -1,0 +1,20 @@
+{
+  "name": "stock-exchange-api",
+  "version": "1.0.0",
+  "description": "Microsserviço para centralizar os dados das ações do mercado financeiro",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "author": "Adrian Martins Fadiga",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "prisma": "^4.10.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.34.0",
+    "nodemon": "^2.0.20"
+  }
+}
