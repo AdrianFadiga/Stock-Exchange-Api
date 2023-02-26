@@ -1,8 +1,8 @@
 const { objectKeysCamelToSnake } = require("../helpers");
 const {infoMoney} = require("../requests/index");
-const {infoMoneyStockExchangesRepository} = require("../repositories");
+const {StockExchangesRepository} = require("../repositories");
 
-const InfoMoneyStockExchangesService = {
+const StockExchangesService = {
 	async findMany({attribute = "volume", quantity = 20}) {
 
 		if (!["volume", "value", "change_day"].includes(attribute)) attribute = "volume";
@@ -10,7 +10,7 @@ const InfoMoneyStockExchangesService = {
 		if (quantity > 100) quantity = 100;
 		if (quantity <= 0) quantity = 20;
 
-		const stockExchanges = await infoMoneyStockExchangesRepository.findMany({attribute, quantity});
+		const stockExchanges = await StockExchangesRepository.findMany({attribute, quantity});
 		
 		return stockExchanges;
 	},
@@ -18,9 +18,9 @@ const InfoMoneyStockExchangesService = {
 	async extractAllStockExchanges() {
 		const stockExchanges = await infoMoney.getStocks();
 		const serializedStockExchanges = stockExchanges.map((stockExchange) => objectKeysCamelToSnake(stockExchange));
-		await infoMoneyStockExchangesRepository.upsertAll(serializedStockExchanges);
+		await StockExchangesRepository.upsertAll(serializedStockExchanges);
 	}
 };
 
 
-module.exports = InfoMoneyStockExchangesService;
+module.exports = StockExchangesService;

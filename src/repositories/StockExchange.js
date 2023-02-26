@@ -2,10 +2,10 @@ const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
-const infoMoneyStockExchangesRepository = {
+const StockExchangesRepository = {
 	async upsertAll(stockExchanges) {    
 		stockExchanges.forEach(async (stock) => {
-			await prisma.InfoMoneyStockExchanges.upsert({
+			await prisma.StockExchanges.upsert({
 				where: {stock_code: stock.stock_code},
 				update: stock,
 				create: stock
@@ -14,7 +14,7 @@ const infoMoneyStockExchangesRepository = {
 	},
 
 	async findMany({attribute, quantity}){
-		const stockExchanges = await prisma.InfoMoneyStockExchanges.findMany({
+		const stockExchanges = await prisma.StockExchanges.findMany({
 			orderBy: {[attribute]: "desc"},
 			take: Number(quantity)
 		});
@@ -22,5 +22,5 @@ const infoMoneyStockExchangesRepository = {
 	},
 };
 
-module.exports = infoMoneyStockExchangesRepository;
+module.exports = StockExchangesRepository;
   

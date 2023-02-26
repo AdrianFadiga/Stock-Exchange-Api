@@ -1,4 +1,4 @@
-const infoMoneyStockExchangesRepository = require("./infoMoneyStockExchange");
+const StockExchangesRepository = require("./StockExchange");
 const StockExchangesCarouselRepository = require("./StockExchangesCarousel");
 
-module.exports = {infoMoneyStockExchangesRepository, StockExchangesCarouselRepository};
+module.exports = {StockExchangesRepository, StockExchangesCarouselRepository};

@@ -1,8 +1,8 @@
-const {InfoMoneyStockExchangesService} = require("../../services");
+const {StockExchangesService} = require("../../services");
 
 async function extractAllStockExchangesJob() {
 	console.log("Extraíndo as stock exchanges da InfoMoney............");
-	InfoMoneyStockExchangesService.extractAllStockExchanges();
+	StockExchangesService.extractAllStockExchanges();
 }
 
 module.exports = extractAllStockExchangesJob;
