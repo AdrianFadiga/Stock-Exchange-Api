@@ -9,10 +9,13 @@ const StockExchangesCarouselService = {
 		const serializedCarousel = carousel.map((stockExchange) => objectKeysCamelToSnake(stockExchange));
 
 		await StockExchangesCarouselRepository.upsertAll(serializedCarousel);
-
 	},
-};
 
-StockExchangesCarouselService.extractCarousel();
+	async findMany() {
+		const carousel = await StockExchangesCarouselRepository.findMany();
+
+		return carousel;
+	}
+};
 
 module.exports = StockExchangesCarouselService;

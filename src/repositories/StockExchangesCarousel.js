@@ -11,6 +11,11 @@ const StockExchangesCarouselRepository = {
 				create: stock
 			});
 		});
+	},
+
+	async findMany() {
+		const carousel = await prisma.stockExchangesCarousel.findMany();
+		return carousel;
 	}
 };
 
