@@ -1,3 +1,4 @@
 const InfoMoneyStockExchangesService = require("./InfoMoneyStockExchanges");
+const StockExchangesCarouselService = require("./StockExchangesCarousel");
 
-module.exports = {InfoMoneyStockExchangesService};
+module.exports = {InfoMoneyStockExchangesService, StockExchangesCarouselService};
