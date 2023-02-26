@@ -1,3 +1,4 @@
 const extractAllStockExchangesJob = require("./extractAllStockExchanges");
+const extractInfoMoneyCarouselJob = require("./extractStockExchangeCarousel");
 
-module.exports = {extractAllStockExchangesJob};
+module.exports = {extractAllStockExchangesJob, extractInfoMoneyCarouselJob};
