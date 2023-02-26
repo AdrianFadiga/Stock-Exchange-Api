@@ -11,5 +11,5 @@ const port = 3000;
 app.use("/", router);
 
 app.listen(port, () => {
-	console.log(`O pai ta on na porta ${port}`);
+	console.log(`Server running at port ${port}`);
 });
