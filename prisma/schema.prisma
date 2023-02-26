@@ -25,3 +25,14 @@ model InfoMoneyStockExchanges {
 
   @@map("info_money_stock_exchanges")
 }
+
+model StockExchangesCarousel {
+  name String
+  alias String @id @unique
+  value String
+  direction String
+  spread String
+  image_url String
+
+  @@map("stock_exchanges_carousel")
+}
