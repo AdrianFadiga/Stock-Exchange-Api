@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "info_money_stock_exchanges" (
+CREATE TABLE "stock_exchanges" (
     "date" TEXT,
     "stock_code" TEXT NOT NULL,
     "stock_name" TEXT,
@@ -12,7 +12,7 @@ CREATE TABLE "info_money_stock_exchanges" (
     "volume" DOUBLE PRECISION,
     "volume_formatted" TEXT,
 
-    CONSTRAINT "info_money_stock_exchanges_pkey" PRIMARY KEY ("stock_code")
+    CONSTRAINT "stock_exchanges_pkey" PRIMARY KEY ("stock_code")
 );
 
 -- CreateTable
@@ -28,7 +28,7 @@ CREATE TABLE "stock_exchanges_carousel" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "info_money_stock_exchanges_stock_code_key" ON "info_money_stock_exchanges"("stock_code");
+CREATE UNIQUE INDEX "stock_exchanges_stock_code_key" ON "stock_exchanges"("stock_code");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "stock_exchanges_carousel_alias_key" ON "stock_exchanges_carousel"("alias");

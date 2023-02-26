@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model InfoMoneyStockExchanges {
+model StockExchanges {
   date String?
   stock_code String @id @unique
   stock_name String?
@@ -23,7 +23,7 @@ model InfoMoneyStockExchanges {
   volume Float?
   volume_formatted String?
 
-  @@map("info_money_stock_exchanges")
+  @@map("stock_exchanges")
 }
 
 model StockExchangesCarousel {
