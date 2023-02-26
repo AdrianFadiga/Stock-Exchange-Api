@@ -11,7 +11,15 @@ const infoMoneyStockExchangesRepository = {
 				create: stock
 			});
 		});
-	}
+	},
+
+	async findMany({attribute, quantity}){
+		const stockExchanges = await prisma.InfoMoneyStockExchanges.findMany({
+			orderBy: {[attribute]: "desc"},
+			take: Number(quantity)
+		});
+		return stockExchanges;
+	},
 };
 
 module.exports = infoMoneyStockExchangesRepository;
