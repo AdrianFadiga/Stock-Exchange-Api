@@ -7,6 +7,7 @@ function scheduler() {
 		extractAllStockExchangesJob();
 	});
 
+	// Atualiza as informações da table stock_exchanges_carousel
 	cron.schedule("*/1 * * * *", () => {
 		extractInfoMoneyCarouselJob();
 	});
