@@ -1,11 +1,12 @@
 const { default: axios } = require("axios");
 
-const endPoint = "https://api.infomoney.com.br/markets/high-low/b3";
+const url = "https://api.infomoney.com.br";
 
 const getTotalStockExchangesCount = async () => {
+	const endPoint = "/markets/high-low/b3";
 	const {data} = await axios({
 		method: "get",
-		url: endPoint,
+		url: url.concat(endPoint),
 		params: {
 			pageSize: "1"
 		}
@@ -13,16 +14,29 @@ const getTotalStockExchangesCount = async () => {
 	return data.TotalCount;
 };
 
+getTotalStockExchangesCount();
+
 const getStocks = async () => {
+	const endPoint = "/markets/high-low/b3";
 	const totalStockExchangesCount = await getTotalStockExchangesCount();
 	const { data } = await axios({
 		method: "get",
-		url: endPoint,
+		url: url.concat(endPoint),
 		params: {
+			type: "json",
 			pageSize: totalStockExchangesCount
 		}
 	});
 	return data.Data;
 };
 
-module.exports = {getStocks};
+async function getCarousel() {
+	const endPoint = "/ativos/ticker";
+	const { data } = await axios({
+		method: "get",
+		url: url.concat(endPoint),
+	});
+	return data;
+}
+
+module.exports = {getStocks, getCarousel};
